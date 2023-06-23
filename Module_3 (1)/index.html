@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>David Chu's China Bistro</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  </head>
+<body>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+           
+            <div id="logo" class="pull-left visible-lg visible-md visible-sm visible-xs"> <h1> Food, LLC </h1></div>
+          
+          <div class="navbar-brand">
+          
+
+          </div>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+      </div>
+    </nav>
+    <div id="collapsable-nav" class="collapse navbar-collapse container-fluid">
+            <div class="chick  visible-xs">Chicken</div>
+            <div class="Beef  visible-xs">Beef</div>
+            <div class="sushi  visible-xs">Sushi</div>
+    </div>
+    <div class="menue">
+      Our Menu
+    </div>
+    <div class="chicken visible-lg visible-md visible-sm visible-xs">
+      <span class="chicken_title chicken visible-lg visible-md visible-sm visible-xs " >
+        Chiken
+      </span>
+      Preface The goal of this book is to provide a basic understanding of the
+technical design and architecture of the Internet. The book is
+aimed at all audiences – even those with absolutely no prior tech-
+nical experience or math skills. The Internet is an amazingly beau-
+tiful design and should be understood by all who use it.
+While this book is not about the Network+ or CCNA certiﬁcations,
+I hope it serves as a way to give students interested in these
+certiﬁcations a good starting point.
+I want to thank Pamela Fox of Khan Academy for coming up with
+the idea of an introductory network technology course using open
+materials.
+I initially developed this material as a single week’s lecture in the
+SI502 - Networked Computing course that I taught at the Univer-
+sity of Michigan School of Information starting in 2008. I reﬁned
+and expanded the material to be three weeks of the Internet His-
+tory, Technology, and Security (IHTS) course that I have taught to
+over 100,000 students on Coursera starting in 2012. This book
+adds further detail to create a standalone text that can be read
+for enjoyment or used to support an introductory course that fo-
+cuses on the Internet’s architecture.
+This book has been particularly fun in that it is a collaboration with
+my friends Mauro Toselli (@xlontrax) and Sue Blumenberg. I met
+Mauro and Sue in 2012 when they became volunteer Community
+Teaching Assistants (CTAs) for my IHTS course on Coursera. Over
+the past three years we have become friends and colleagues. It
+is a great example of how open education can bring people to-
+gether.
+There is supporting material for this book at
+http://www.net-intro.com/
+If you like the book, let us know. Send us a tweet with your
+thoughts. You can also send a tweet if you ﬁnd an error in the
+book.
+Charles R. Severance (@drchuck)
+www.dr-chuck.com
+Ann Arbor, MI USA
+May 20, 2015
+iv     Chapter 1
+Introduction
+Using the Internet seems pretty easy. We go to a web address
+and up comes a page. Or we go to our favorite social site and
+see pictures of our friends, families, and pets. But it takes a lot
+of complex software and hardware to make the Internet seem so
+simple. The design of the technologies that make today’s Inter-
+net work started in the 1960s, and there were over 20 years of
+research into how to build internetworking technologies before
+the first “Internet” was built in the late 1980s by academics in a
+project called NSFNet. Since then, the research and development
+into improving network technologies has continued as networks
+have become far larger and faster and globally distributed with
+billions of computers.
+In order to better understand how today’s Internet works, we will
+take a look at how humans and computers have communicated
+using technology over the years.
+1.1 Communicating at a Distance
+Imagine a group of five people in a room sitting in a circle. As long
+as they are courteous and don’t have more than one conversation
+at the same time, it’s quite natural for any person to talk to any
+other person in the room. They just need to be able to hear each
+other and coordinate how to use the shared space in the room.
+But what if we put these people in different rooms so they can
+no longer see or hear each other? How could pairs of people
+communicate with each other then? One way might be to run a
+wire between each pair of people with a microphone on one end
+and a speaker on the other end. Now everyone could still hear all
+1
+2 CHAPTER 1. INTRODUCTION
+the conversations. They would still need to be courteous to make
+sure that there was only one conversation going on at the same
+time.
+Each person would need four speakers (one for each of the other
+people) and enough pieces of wire to connect all the microphones
+and speakers. This is a problem with five people and it gets far
+worse when there are hundreds or thousands of people.
+Using wires, microphones, and speakers is how early telephone
+systems from the 1900s allowed people to make phone calls. Be-
+cause they could not have separate wires between every pair of
+telephones, these systems did not allow all pairs of people to be
+connected at the same time. Each person had a single connection
+to a human “operator”. The operator would connect two wires to-
+gether to allow a pair of people to talk, and then disconnect them
+when the conversation was finished.
+Figure 1.1: Connecting Using Telephone Operators
+The first local telephone systems worked well when a customer’s
+home or business was close to the operator’s building and a wire
+could be strung directly from the operator’s building to the per-
+son’s home.
+1.1. COMMUNICATING AT A DISTANCE 3
+But what if thousands people who are hundreds of kilometers
+apart need to be able to communicate? We can’t run 100-
+kilometer wires from each home to a single central office. What
+the telephone companies did instead was to have many central
+offices and run a few wires between the central offices, then
+share connections between central offices. For long distances, a
+connection might run through a number of central offices. Before
+the advent of fiber optic, long-distance telephone calls were
+carried between cities on poles with lots of separate wires. The
+number of wires on the poles represented the number of possible
+simultaneous long-distance phone calls that could use those
+wires.
+Figure 1.2: Long-Distance Telephone Poles
+Since the cost of the wires went up as the length of the wire
+increased, these longer connections between offices were quite
+expensive to install and maintain, and they were scarce. So in the
+early days of telephones, local calls were generally quite inexpen-
+sive. But long-distance calls were more expensive and they were
+charged by the minute. This made sense because each minute
+you talked on a long-distance call, your use of the long-distance
+wires meant no one else could use them. The telephone compa-
+nies wanted you to keep your calls short so their long-distance
+lines would be available for other customers.
+When telephone companies started using fiber optic, more ad-
+vanced techniques were used to carry many simultaneous long-
+distance conversations on a single fiber. When you look at an old
+4 CHAPTER 1. INTRODUCTION
+photo and see lots of wires on a single pole, it generally means
+they were telephone wires and not used to carry electricity.
+1.2 Computers Communicate Differently
+When humans talk on the phone, they make a call, talk for a
+while, and then hang up. Statistically, most of the time, humans
+are not talking on the phone. At least they weren’t before ev-
+eryone had smartphones. But computers, including the applica-
+tions on your smartphone, communicate differently than humans
+do. Sometimes computers send short messages to check if an-
+other computer is available. Computers sometimes send medium-
+sized information like a single picture or a long email message.
+And sometimes computers send a lot of information like a whole
+movie or a piece of software to install that might take minutes or
+even hours to download. So messages between computers can
+be short, medium, or long.
+In the earliest days of connecting computers to one another, pairs
+of computers were connected with wires. The simplest way to
+send data from one computer to another was to line up the out-
+going messages in a queue and send the messages one after
+another as fast as the computers and the wires could carry the
+data. Each message would wait for its turn until the messages
+ahead of it were sent, and then it would get its chance to be sent
+across the connection.
+When the computers were in the same building, the building
+owner could run wires to connect them. If the computers were
+in the same town, the owners of the computers generally had
+to lease wires from the telephone companies to connect their
+computers. They often would have the phone company connect
+the wires together in their central office so that it was not
+necessary for one computer to “dial” the other computer to
+send data. These leased lines were convenient for computer
+communications because they were “always on”, but they were
+also quite expensive because they were used 24 hours a day.
+When the computers were even farther away, in different cities,
+the leased lines were extended using the longer wires connect-
+ing the central offices. Since there were so few wires between
+central offices, these long-distance leased lines were quite ex-
+pensive and their cost increased dramatically as the length of the
+leased line increased. But if you had enough money, you could
+lease direct connections between your computers so they could
+
+
+    </div>
+
+  </header>
+
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
